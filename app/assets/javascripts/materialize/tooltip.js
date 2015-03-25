@@ -3,12 +3,12 @@
         var timeout = null,
     		counter = null,
     		started = false,
-    		counterInterval = null,
-    		margin = 5;
+    		counterInterval = null;
 
       // Defaults
       var defaults = {
-        delay: 350
+        delay: 350,
+        margin: 5
       };
       options = $.extend(defaults, options);
 
@@ -39,6 +39,7 @@
         e.stopPropagation();
         var tooltip_delay = origin.data("delay");
         tooltip_delay = (tooltip_delay == undefined || tooltip_delay == "") ? options.delay : tooltip_delay;
+        margin = options.margin;
         counter = 0;
         counterInterval = setInterval(function(){
           counter += 10;
