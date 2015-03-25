@@ -1,9 +1,9 @@
 (function ($) {
     $.fn.tooltip = function (options) {
         var timeout = null,
-    		counter = null,
-    		started = false,
-    		counterInterval = null;
+        counter = null,
+        started = false,
+        counterInterval = null;
 
       // Defaults
       var defaults = {
@@ -39,7 +39,8 @@
         e.stopPropagation();
         var tooltip_delay = origin.data("delay");
         tooltip_delay = (tooltip_delay == undefined || tooltip_delay == "") ? options.delay : tooltip_delay;
-        margin = options.margin;
+        var margin = origin.data("margin");
+        margin = (margin == undefined || margin == "") ? options.margin : margin;
         counter = 0;
         counterInterval = setInterval(function(){
           counter += 10;
