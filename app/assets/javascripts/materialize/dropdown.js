@@ -59,6 +59,9 @@
     function placeDropdown() {
       // Check html data attributes
       updateOptions();
+      activates.css("height", "auto");
+      dropdownRealHeight = activates.height();
+      activates.css("height", dropdownRealHeight);
 
       if (options.constrain_width == true) {
         activates.css('width', origin.outerWidth());
