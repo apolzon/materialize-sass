@@ -13,7 +13,7 @@
       options = $.extend(defaults, options);
 
       //Remove previously created html
-      $('.material-tooltip').remove();
+      // $('.material-tooltip').remove();
 
       return this.each(function(){
         var origin = $(this);
