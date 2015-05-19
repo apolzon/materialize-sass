@@ -12,26 +12,25 @@
       };
       options = $.extend(defaults, options);
 
-      //Remove previously created html
-      // $('.material-tooltip').remove();
+      if ($('.material-tooltip').length === 0) {
+        // Create tooltip
+        var newTooltip = $('<div></div>');
+        // Create Text span
+        newTooltip.addClass('material-tooltip').append('<span></span>');
+        newTooltip.appendTo($('body'));
+
+        var backdrop = $('<div></div>').addClass('backdrop');
+        backdrop.appendTo(newTooltip);
+        backdrop.css({ top: 0, left:0 });
+      }
+
 
       return this.each(function(){
         var origin = $(this);
+        var newTooltip = $(".material-tooltip");
+        var backdrop = newTooltip.find(".backdrop");
 
-      // Create Text span
-      var tooltip_text = $('<span></span>').text(origin.attr('data-tooltip'));
-
-      // Create tooltip
-      var newTooltip = $('<div></div>');
-      newTooltip.addClass('material-tooltip').append(tooltip_text);
-      newTooltip.appendTo($('body'));
-
-      var backdrop = $('<div></div>').addClass('backdrop');
-      backdrop.appendTo(newTooltip);
-      backdrop.css({ top: 0, left:0 });
-
-
-     //Destroy previously binded events
+    //Destroy previously binded events
     $(this).off('mouseenter mouseleave');
       // Mouse In
     $(this).on({
@@ -145,6 +144,9 @@
         // Reset State
         clearInterval(counterInterval);
         counter = 0;
+
+        var newTooltip = $(".material-tooltip");
+        var backdrop = newTooltip.find(".backdrop");
 
         // Animate back
         newTooltip.velocity({
