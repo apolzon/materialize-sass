@@ -37,9 +37,9 @@
       mouseenter: function(e) {
         e.stopPropagation();
         var tooltip_delay = origin.data("delay");
-        tooltip_delay = (tooltip_delay == undefined || tooltip_delay == "") ? options.delay : tooltip_delay;
+        tooltip_delay = (tooltip_delay === undefined || tooltip_delay === "") ? options.delay : tooltip_delay;
         var margin = origin.data("margin");
-        margin = (margin == undefined || margin == "") ? options.margin : margin;
+        margin = (margin === undefined || margin === "") ? options.margin : margin;
         counter = 0;
         counterInterval = setInterval(function(){
           counter += 10;
