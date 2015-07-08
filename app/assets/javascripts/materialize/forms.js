@@ -244,7 +244,9 @@
           selectedOption = options.find('li').filter(function() {
             return $(this).text().toLowerCase() === label.toLowerCase();
           })[0];
-          activateOption(options, selectedOption);
+          if (selectedOption) {
+            activateOption(options, selectedOption);
+          }
         });
 
         $newSelect.on('blur', function(){
