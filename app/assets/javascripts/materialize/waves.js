@@ -259,7 +259,7 @@
         var target = e.target || e.srcElement;
 
         while (target.parentElement !== null) {
-            if (target.className.indexOf('waves-effect') !== -1) {
+            if (typeof target.className == "string" && target.className.indexOf('waves-effect') !== -1) {
                 element = target;
                 break;
             }
