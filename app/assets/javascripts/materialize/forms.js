@@ -229,7 +229,7 @@
         $select.wrap(wrapper);
         // Add Select Display Element
         var $newSelect = $('<input type="text" class="select-dropdown" readonly="true" ' + (($select.is(':disabled')) ? 'disabled' : '')
-                         + ' data-activates="select-options-' + uniqueID +'" value="'+ label.html() +'"/><i class="mdi-navigation-arrow-drop-down">');
+                         + ' data-activates="select-options-' + uniqueID +'" value="'+ label.html().trim() +'"/><i class="mdi-navigation-arrow-drop-down">');
         $select.before($newSelect);
         $('body').append(options);
         // Check if section element is disabled
